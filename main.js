@@ -28,8 +28,13 @@ function setupHypercubeCallback( dt, dim, simShimInst ) {
   return function (hypercube) {
     // unpack
     var rotMats = hypercube.rotationMatrices;
-    var verts = hypercube.vertices;
     var edges = hypercube.edges;
+    // adjust cube to be centered on 0
+    var verts = hypercube.vertices.map(function(v) {
+      return v.map(function (component) {
+        return component - 0.5;
+      })
+    });
 
     // generate a random ish rotation matrix
     var M = multAll( rotMats.map(function (m) {
@@ -93,7 +98,7 @@ var ss = new SimShim(
   document.getElementById("plot"),
   {
     "cameraPosn": [ 3, 3, 3 ],
-    "orbitTarget": [0.5, 0.5, 0.5],
+    "orbitTarget": [ 0, 0, 0 ],
     "clearColor": "#161616"
   }
 );
