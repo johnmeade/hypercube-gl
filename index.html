@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <style>
+      html {
+        width: 100%;
+        height: 100%;
+      }
+      body {
+        font-family: monospace;
+        background-color: #222;
+        padding: 0;
+        margin: 7vh 7vw 14vh 7vw;
+        width: 86vw;
+        height: 79vh;
+      }
+      #plot { width: 100%; height: 100%; }
+      .warn { color: yellow; }
+      label { color: white; font-size: 20px; }
+    </style>
+  </head>
+  <body>
+    <div id="inputs">
+      <label for="reset-input">Enter dimension</label>
+      <input type="number" id="reset-input" value=""/>
+      <input type="button" id="reset" value="Go"/>
+      <p class="warn">WARNING: Attempting to display dimenstions higher than 9 will likely lag or crash your tab.</p>
+    </div>
+    <div id="plot"></div>
+    <script type="text/javascript" src="http://codemaker1999.github.io/sim-shim-js/js/sim-shim-bundle.min.js"></script>
+    <script type="text/javascript" src="elm-hypercube.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
